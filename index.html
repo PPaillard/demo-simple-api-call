@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch example</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1>Demo API</h1>
+    <h2>Click on the button to make a GET request and load a random coffee</h2>
+    <br />
+    <button id="buttonGet">Click here to send a get request</button>
+    <div id="coffeeContainer"></div>
+    <script>
+      buttonGet.onclick = function () {
+        fetch("https://random-data-api.com/api/coffee/random_coffee")
+          .then((resp) => resp.json())
+          .then((data) => createCoffee(data));
+      };
+      function createCoffee(data) {
+        console.log(data);
+
+        coffeeContainer.innerHTML = `
+          <h3>${data.blend_name}</h3>
+          <p>${data.notes}</p>
+        `;
+      }
+    </script>
+  </body>
+</html>
