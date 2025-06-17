@@ -11,20 +11,20 @@
     <h2>Click on the button to make a GET request and load a article</h2>
     <br />
     <button id="buttonGet">Click here to send a get request</button>
-    <div id="coffeeContainer"></div>
+    <div id="articleContainer"></div>
     <script>
       buttonGet.onclick = function () {
         fetch("https://fakestoreapi.com/products/1")
           .then((resp) => resp.json())
-          .then((data) => createCoffee(data));
+          .then((data) => createArticle(data));
       };
-      function createCoffee(data) {
-        console.log(data);
+      function createArticle(article) {
+        console.log(article);
 
-        coffeeContainer.innerHTML = `
-          <h3>${data.title}</h3>
-          <p>${data.description}</p>
-          <img src="${data.image}" height="300px">
+        articleContainer.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.description}</p>
+          <img src="${article.image}" height="300px">
         `;
       }
     </script>
