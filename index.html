@@ -14,7 +14,7 @@
     <div id="coffeeContainer"></div>
     <script>
       buttonGet.onclick = function () {
-        fetch("https://random-data-api.com/api/coffee/random_coffee")
+        fetch("https://fakestoreapi.com/products/1")
           .then((resp) => resp.json())
           .then((data) => createCoffee(data));
       };
@@ -22,8 +22,9 @@
         console.log(data);
 
         coffeeContainer.innerHTML = `
-          <h3>${data.blend_name}</h3>
-          <p>${data.notes}</p>
+          <h3>${data.title}</h3>
+          <p>${data.description}</p>
+          <img src="${data.image}" height="300px">
         `;
       }
     </script>
